@@ -41,51 +41,51 @@ const quizreducerslice = createSlice({
       return { ...state.quiz, payload };
       // return { ...state.quiz, ...payload };
     },
-    // answerFun(state, { payload }) {
-    //   let { answer, id } = payload;
-    //   // answer = JSON.parse(answer);
+    answerFun(state, { payload }) {
+      let { answer, id } = payload;
+      // answer = JSON.parse(answer);
 
-    //   // const { id, answer } = payload;
-    //   const existingQues = state.questions.find(
-    //     (question) => question.id === id
-    //   );
-    //   if (existingQues) {
-    //     existingQues.userAnswer.push(answer);
-    //   }
-    //   // return { ...state.quiz.questions, existingQues };
-    // },
-    // flagFun(state, { payload }) {
-    //   console.log("datasss");
-    //   const { id } = payload;
-    //   const existingQues = state.questions.find(
-    //     (question) => question.id === id
-    //   );
-    //   if (existingQues) {
-    //     existingQues.userFlag = !existingQues.userFlag;
-    //   }
-    // },
+      // const { id, answer } = payload;
+      const existingQues = state.questions.find(
+        (question) => question.id === id
+      );
+      if (existingQues) {
+        existingQues.userAnswer.push(answer);
+      }
+      // return { ...state.quiz.questions, existingQues };
+    },
+    flagFun(state, { payload }) {
+      console.log("datasss");
+      const { id } = payload;
+      const existingQues = state.questions.find(
+        (question) => question.id === id
+      );
+      if (existingQues) {
+        existingQues.userFlag = !existingQues.userFlag;
+      }
+    },
 
-    // attemptFun(state, { payload }) {
-    //   let { id } = payload;
-    //   // answer = JSON.parse(answer);
+    attemptFun(state, { payload }) {
+      let { id } = payload;
+      // answer = JSON.parse(answer);
 
-    //   // const { id, answer } = payload;
-    //   const existingQues = state.questions.find(
-    //     (question) => question.id === id
-    //   );
-    //   if (existingQues) {
-    //     existingQues.attempts = existingQues.attempts - 1;
-    //   }
-    // },
-    // scoreFun(state, { payload }) {
-    //   const { id } = payload;
-    //   const existingQues = state.questions.find(
-    //     (question) => question.id === id
-    //   );
-    //   if (existingQues) {
-    //     existingQues.score = 1;
-    //   }
-    // },
+      // const { id, answer } = payload;
+      const existingQues = state.questions.find(
+        (question) => question.id === id
+      );
+      if (existingQues) {
+        existingQues.attempts = existingQues.attempts - 1;
+      }
+    },
+    scoreFun(state, { payload }) {
+      const { id } = payload;
+      const existingQues = state.questions.find(
+        (question) => question.id === id
+      );
+      if (existingQues) {
+        existingQues.score = 1;
+      }
+    },
   },
 });
 
