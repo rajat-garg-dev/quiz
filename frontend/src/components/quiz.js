@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useGetQuestionQuery } from "../slices/questionlist";
-import { UseDispatch, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   quizSelector,
   setter,
@@ -9,19 +9,23 @@ import {
   attemptFun,
   scoreFun,
 } from "../slices/quizreducerslice";
-const quizId = 65;
-const userId = 1;
+
 export default function Quiz() {
   const dispatch = useDispatch();
-  const {
-    data: questionlist,
-    isLoading: questionIsLoading,
-    isFetching: questionIsFetching,
-    isSuccess,
-    fulfilledTimeStamp: full,
-  } = useGetQuestionQuery({ userId, quizId });
-  console.log(questionlist, "questionlist");
-
+  const userId = 1;
+  const quizId = 1;
+  const { data: questionlist, isSuccess } = useGetQuestionQuery({
+    userId,
+    quizId,
+  });
+  const data = {
+    userId: userId,
+    quizId: quizId,
+    questions: questionlist?.questions,
+  };
+  if (questionlist) {
+    dispatch(setter(data));
+  }
   const [currentindex, setCurrentindex] = useState(0);
 
   const [answer, setAnswer] = useState("");
@@ -113,7 +117,7 @@ export default function Quiz() {
     const flag = () => {
       dispatch(
         flagFun({
-          id: questionlist.questions[currentindex].id,
+          id: quizSelector.questions[currentindex].id,
         })
       );
     };
