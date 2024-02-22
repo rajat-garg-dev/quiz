@@ -282,7 +282,7 @@ export default function Quiz() {
             }>
             check
           </button>
-          {/* button */}
+
           <button
             onClick={() => setShow(true)}
             className={`${
