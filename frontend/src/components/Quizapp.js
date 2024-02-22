@@ -28,10 +28,12 @@ export default function Quizapp() {
   }
   return (
     <div>
+      heellloo
       {/* {abc?.quiz?.questions.map((item, index) => {
         return (
           <>
             <h1>hello</h1>
+
           </>
         );
       })} */}
