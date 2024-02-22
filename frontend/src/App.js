@@ -7,8 +7,7 @@ function App() {
   console.log("hello");
   return (
     <div className="App">
-      {/* <Quiz /> */}
-      <Quizapp />
+       <Quiz /> 
     </div>
   );
 }
